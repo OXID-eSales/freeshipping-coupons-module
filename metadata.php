@@ -8,16 +8,19 @@
 /**
  * Metadata version
  */
+
+use OxidEsales\FreeShippingCoupons\Core\Module;
+
 $sMetadataVersion = '2.1';
 
 /**
  * Module information
  */
 $aModule = [
-    'id'          => 'oe_freeshipping',
+    'id'          => Module::MODULE_ID,
     'title'       => 'OxidEsales Freeshipping Coupons Module',
     'description' => 'OxidEsales Freeshipping Coupons Module',
-    'thumbnail'   => 'pictures/logo.png',
+    'thumbnail'   => 'logo.png',
     'version'     => '1.0.0',
     'author'      => 'OXID eSales AG',
     'url'         => '',

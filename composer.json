@@ -37,8 +37,8 @@
     },
     "autoload": {
         "psr-4": {
-            "OxidEsales\\FreeshippingModule\\": "src/",
-            "OxidEsales\\FreeshippingModule\\Tests\\": "tests/"
+            "OxidEsales\\FreeShippingCoupons\\": "src/",
+            "OxidEsales\\FreeShippingCoupons\\Tests\\": "tests/"
         }
     },
     "scripts": {
