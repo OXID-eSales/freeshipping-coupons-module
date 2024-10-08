@@ -11,5 +11,4 @@ namespace OxidEsales\FreeShippingCoupons\Extension\Model;
 
 class Basket extends Basket_parent
 {
-
 }
