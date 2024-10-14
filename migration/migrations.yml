@@ -1,0 +1,4 @@
+table_storage:
+  table_name: oxmigrations_freeshipping
+migrations_paths:
+  'OxidEsales\FreeShippingCoupons\Migrations': data

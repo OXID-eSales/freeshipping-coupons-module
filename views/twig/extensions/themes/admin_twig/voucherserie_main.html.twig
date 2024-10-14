@@ -1,0 +1,18 @@
+{% extends 'voucherserie_main.html.twig' %}
+
+{% block admin_voucherserie_main_form_discount_type %}
+    <tr>
+        <td class="edittext">
+            {{ translate({ ident: "VOUCHERSERIE_MAIN_DISCOUNT" }) }}
+        </td>
+        <td class="edittext">
+            <input class="editinput" type="text" size="15" name="editval[oxvoucherseries__oxdiscount]" value="{{ edit.oxvoucherseries__oxdiscount.value }}" onClick="this.select()" {{ readonly }}>
+            <select class="editinput" name="editval[oxvoucherseries__oxdiscounttype]" {{ readonly }}>
+                <option value="absolute" {% if edit.oxvoucherseries__oxdiscounttype.value == "absolute" %}selected{% endif %}>abs</option>
+                <option value="percent" {% if edit.oxvoucherseries__oxdiscounttype.value == "percent" %}selected{% endif %}>%</option>
+                <option value="shipfree" {% if edit.oxvoucherseries__oxdiscounttype.value == "shipfree" %}selected{% endif %}>shipfree</option>
+            </select>
+            {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_VOUCHERSERIE_MAIN_DISCOUNT"), 'sHelpText': help_text("HELP_VOUCHERSERIE_MAIN_DISCOUNT")} %}
+        </td>
+    </tr>
+{% endblock %}
