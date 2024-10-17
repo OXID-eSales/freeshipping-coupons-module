@@ -25,7 +25,9 @@ $aModule = [
     'author'      => 'OXID eSales AG',
     'url'         => '',
     'email'       => '',
-    'extend'      => [],
+    'extend'      => [
+		\OxidEsales\Eshop\Application\Model\Basket::class => OxidEsales\FreeShippingCoupons\Extension\Model\Basket::class
+	],
     'controllers' => [],
     'events'      => [],
     'settings'    => [],
