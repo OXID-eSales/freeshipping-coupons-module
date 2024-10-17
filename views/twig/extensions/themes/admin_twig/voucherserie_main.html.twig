@@ -1,6 +1,24 @@
 {% extends 'voucherserie_main.html.twig' %}
 
 {% block admin_voucherserie_main_form_discount_type %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const discountTypeSelect = document.querySelector('select[name="editval[oxvoucherseries__oxdiscounttype]"]');
+            const sameSeriesYesRadio = document.querySelector('input[name="editval[oxvoucherseries__oxallowsameseries]"][value="1"]');
+            const sameSeriesNoRadio = document.querySelector('input[name="editval[oxvoucherseries__oxallowsameseries]"][value="0"]');
+
+            if (discountTypeSelect && sameSeriesYesRadio && sameSeriesNoRadio) {
+                discountTypeSelect.addEventListener('change', function () {
+                    if (discountTypeSelect.value === 'shipfree') {
+                        sameSeriesNoRadio.checked = true;
+                        sameSeriesYesRadio.disabled = true;
+                    } else {
+                        sameSeriesYesRadio.disabled = false;
+                    }
+                });
+            }
+        });
+    </script>
     <tr>
         <td class="edittext">
             {{ translate({ ident: "VOUCHERSERIE_MAIN_DISCOUNT" }) }}
