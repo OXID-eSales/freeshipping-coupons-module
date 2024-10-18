@@ -6,17 +6,25 @@
             const discountTypeSelect = document.querySelector('select[name="editval[oxvoucherseries__oxdiscounttype]"]');
             const sameSeriesYesRadio = document.querySelector('input[name="editval[oxvoucherseries__oxallowsameseries]"][value="1"]');
             const sameSeriesNoRadio = document.querySelector('input[name="editval[oxvoucherseries__oxallowsameseries]"][value="0"]');
+            const discountInput = document.querySelector('input[name="editval[oxvoucherseries__oxdiscount]"]');
 
-            if (discountTypeSelect && sameSeriesYesRadio && sameSeriesNoRadio) {
-                discountTypeSelect.addEventListener('change', function () {
-                    if (discountTypeSelect.value === 'shipfree') {
-                        sameSeriesNoRadio.checked = true;
-                        sameSeriesYesRadio.disabled = true;
-                    } else {
-                        sameSeriesYesRadio.disabled = false;
-                    }
-                });
+            function updateFieldsBasedOnDiscountType() {
+                if (discountTypeSelect.value === 'shipfree') {
+                    sameSeriesNoRadio.checked = true;
+                    sameSeriesYesRadio.disabled = true;
+                    discountInput.disabled = true;
+                    discountInput.value = 0;
+                } else {
+                    sameSeriesYesRadio.disabled = false;
+                    discountInput.disabled = false;
+                }
             }
+
+            if (discountTypeSelect && sameSeriesYesRadio && sameSeriesNoRadio && discountInput) {
+                updateFieldsBasedOnDiscountType();
+                discountTypeSelect.addEventListener('change', updateFieldsBasedOnDiscountType);
+            }
+
         });
     </script>
     <tr>
