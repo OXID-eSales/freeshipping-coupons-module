@@ -1,7 +1,13 @@
-install_shop_with_modules:
+install:
   cache:
     prepared_shop: false
+  git:
+    repository: 'OXID-eSales/freeshipping-coupons-module'
+    ref: &ref '{{ .Github.RefName }}'
+    shop_url: 'https://github.com/OXID-eSales/freeshipping-coupons-module.git'
+    shop_ref: *ref
   composer:
+    root_url: ''
     transform: |
       {
           "require": {
@@ -12,15 +18,9 @@ install_shop_with_modules:
               "oxid-esales/twig-component-pe": "{{ .Data.global.composer.dev_ref }}",
               "oxid-esales/twig-component-ee": "{{ .Data.global.composer.dev_ref }}",
               "oxid-esales/twig-admin-theme": "{{ .Data.global.composer.dev_ref }}",
-              "oxid-esales/apex-theme": "{{ .Data.global.composer.dev_ref }}",
-              "oxid-esales/developer-tools": "{{ .Data.global.composer.dev_ref }}",
-              "oxid-esales/freeshipping-coupons-module": "dev-{{ .Github.RefName }}"
+              "oxid-esales/apex-theme": "{{ .Data.global.composer.dev_ref }}"
           },
           "repositories": {
-            "oxid-esales/freeshipping-coupons-module": {
-              "type": "git",
-              "url": "https://github.com/OXID-eSales/freeshipping-coupons-module.git"
-            },
             "oxid-esales/oxideshop-ee": {
               "type": "git",
               "url": "https://github.com/OXID-eSales/oxideshop_ee.git"
@@ -41,8 +41,14 @@ install_shop_with_modules:
       }
   custom_script_container: |
     vendor/bin/oe-console oe:database:reset --db-host=mysql --db-port=3306 --db-name=example --db-user=root --db-password=root --force
+    vendor/bin/oe-console oe:module:install ./
+    vendor/bin/oe-eshop-doctrine_migration migrations:migrate
     vendor/bin/oe-console oe:module:activate oe_freeshipping
     vendor/bin/oe-console oe:theme:activate apex
+
+install_shop_with_modules:
+  composer:
+    root_url: ''
 
 runscript: &runscript
   matrix:
@@ -55,7 +61,7 @@ runscript: &runscript
   composer:
     early: true
   freeshipping_module:
-    path: 'vendor/oxid-esales/freeshipping-coupons-module'
+    path: ''
 
 runslim:
   <<: *runscript
@@ -70,7 +76,7 @@ runslim:
 sonarcloud:
   matrix:
     testplan: '["-"]'
-  strip_path: '/var/www/vendor/oxid-esales/freeshipping-coupons-module/'
+  strip_path: '/var/www/'
   project_key: 'OXID-eSales_freeshipping-coupons-module'
   project_name: 'oxid-esales/freeshipping-coupons-module'
   parameters: |
