@@ -22,8 +22,8 @@ class Basket extends Basket_parent
      */
     protected function calcTotalPrice(): void
     {
-        parent::calcTotalPrice();
         $this->setFreeShippingVoucherPrice();
+		parent::calcTotalPrice();
     }
 
     protected function setFreeShippingVoucherPrice(): void
