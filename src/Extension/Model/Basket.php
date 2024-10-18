@@ -9,12 +9,12 @@ declare(strict_types=1);
 
 namespace OxidEsales\FreeShippingCoupons\Extension\Model;
 
-use OxidEsales\Eshop\Application\Model\Basket as Basket_parent;
 use OxidEsales\Eshop\Application\Model\Voucher as VoucherModel;
 use OxidEsales\Eshop\Core\Exception\VoucherException;
 use OxidEsales\Eshop\Core\Price;
 use OxidEsales\Eshop\Core\Registry;
 
+/** @mixin \OxidEsales\Eshop\Application\Model\Basket */
 class Basket extends Basket_parent
 {
     /**
@@ -23,7 +23,7 @@ class Basket extends Basket_parent
     protected function calcTotalPrice(): void
     {
         $this->setFreeShippingVoucherPrice();
-		parent::calcTotalPrice();
+        parent::calcTotalPrice();
     }
 
     protected function setFreeShippingVoucherPrice(): void

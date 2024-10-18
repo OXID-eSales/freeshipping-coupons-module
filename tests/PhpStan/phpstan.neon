@@ -1,7 +1,4 @@
 parameters:
-    ignoreErrors:
-        -
-            identifier: missingType.iterableValue
     bootstrapFiles:
         - phpstan-bootstrap.php
     level: 8
