@@ -28,16 +28,21 @@ class Basket extends Basket_parent
 
     protected function setFreeShippingVoucherPrice(): void
     {
+        $shopLanguageService = Registry::getLang();
         $vouchers = $this->getVouchers();
 
-        foreach ($vouchers as $key => $voucher) {
+        foreach ($vouchers as $voucher) {
             if ($this->isFreeShippingVoucher(voucherId: $voucher->sVoucherId)) {
-                $this->initializeVoucherDiscount();
+                $this->initializeVoucherDiscountIfNotAvailableYet();
 
                 $deliveryCost = $this->getDeliveryPrice();
+
                 $voucher->dVoucherdiscount = $deliveryCost;
+                $voucher->fVoucherdiscount = $shopLanguageService->formatCurrency(
+                    $deliveryCost,
+                    $this->getBasketCurrency()
+                );
                 $this->_oVoucherDiscount->add($deliveryCost);
-                $this->_aVouchers[$key] = $voucher;
 
                 $this->logDeliveryCostError(voucherNr: $voucher->sVoucherNr, deliveryCost: $deliveryCost);
             }
@@ -53,10 +58,10 @@ class Basket extends Basket_parent
         }
     }
 
-    private function initializeVoucherDiscount(): void
+    private function initializeVoucherDiscountIfNotAvailableYet(): void
     {
         if ($this->_oVoucherDiscount === null) {
-            $this->_oVoucherDiscount = $this->getPriceModel();
+            $this->_oVoucherDiscount = $this->getPriceObject();
         }
     }
 
@@ -66,7 +71,7 @@ class Basket extends Basket_parent
         return ($deliveryCost instanceof Price) ? $deliveryCost->getPrice() : 0.0;
     }
 
-
+    // todo: extract to the service.
     private function isFreeShippingVoucher(string $voucherId): bool
     {
         $voucher = $this->getVoucherModel();
@@ -77,10 +82,5 @@ class Basket extends Basket_parent
     protected function getVoucherModel(): VoucherModel
     {
         return oxNew(VoucherModel::class);
-    }
-
-    protected function getPriceModel(): Price
-    {
-        return oxNew(Price::class);
     }
 }
