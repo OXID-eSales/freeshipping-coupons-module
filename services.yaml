@@ -6,3 +6,6 @@ services:
 
   OxidEsales\FreeShippingCoupons\Infrastructure\VoucherFactoryInterface:
     class: OxidEsales\FreeShippingCoupons\Infrastructure\FactoryInterface
+
+  OxidEsales\FreeShippingCoupons\Service\FreeShippingVoucherServiceInterface:
+    class: OxidEsales\FreeShippingCoupons\Service\FreeShippingVoucherService
