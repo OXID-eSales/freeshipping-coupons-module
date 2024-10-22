@@ -9,10 +9,11 @@ declare(strict_types=1);
 
 namespace OxidEsales\FreeShippingCoupons\Extension\Model;
 
-use OxidEsales\Eshop\Application\Model\Voucher as VoucherModel;
 use OxidEsales\Eshop\Core\Exception\VoucherException;
 use OxidEsales\Eshop\Core\Price;
-use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\FreeShippingCoupons\Infrastructure\LanguageProxyInterface;
+use OxidEsales\FreeShippingCoupons\Infrastructure\UtilsViewProxyInterface;
+use OxidEsales\FreeShippingCoupons\Service\FreeShippingVoucherServiceInterface;
 
 /** @mixin \OxidEsales\Eshop\Application\Model\Basket */
 class Basket extends Basket_parent
@@ -28,11 +29,13 @@ class Basket extends Basket_parent
 
     protected function setFreeShippingVoucherPrice(): void
     {
-        $shopLanguageService = Registry::getLang();
         $vouchers = $this->getVouchers();
 
+        $shopLanguageService = $this->getService(LanguageProxyInterface::class);
+        $freeShipService = $this->getService(FreeShippingVoucherServiceInterface::class);
+
         foreach ($vouchers as $voucher) {
-            if ($this->isFreeShippingVoucher(voucherId: $voucher->sVoucherId)) {
+            if ($freeShipService->isFreeShippingVoucher(voucherId: $voucher->sVoucherId)) {
                 $this->initializeVoucherDiscountIfNotAvailableYet();
 
                 $deliveryCost = $this->getDeliveryPrice();
@@ -54,10 +57,19 @@ class Basket extends Basket_parent
         if ($deliveryCost === 0.0) {
             $voucherException = new VoucherException('ERROR_MESSAGE_VOUCHER_WHEN_NO_DELIVERY');
             $voucherException->setVoucherNr($voucherNr);
-            Registry::getUtilsView()->addErrorToDisplay($voucherException, false, true);
+
+            $utilsView = $this->getService(UtilsViewProxyInterface::class);
+            $utilsView->addErrorToDisplay(
+                exception: $voucherException,
+                useCustomDestination: true,
+                customDestination: 'basket'
+            );
         }
     }
 
+    /**
+     * This Ensures the _oVoucherDiscount property is initialized for calculation of voucher discount in Basket.
+     */
     private function initializeVoucherDiscountIfNotAvailableYet(): void
     {
         if ($this->_oVoucherDiscount === null) {
@@ -69,18 +81,5 @@ class Basket extends Basket_parent
     {
         $deliveryCost = $this->getCosts('oxdelivery');
         return ($deliveryCost instanceof Price) ? $deliveryCost->getPrice() : 0.0;
-    }
-
-    // todo: extract to the service.
-    private function isFreeShippingVoucher(string $voucherId): bool
-    {
-        $voucher = $this->getVoucherModel();
-        $voucher->load($voucherId);
-        return $voucher->getDiscountType() === 'shipfree';
-    }
-
-    protected function getVoucherModel(): VoucherModel
-    {
-        return oxNew(VoucherModel::class);
     }
 }
