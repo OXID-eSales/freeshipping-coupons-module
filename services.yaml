@@ -3,9 +3,21 @@ services:
   _defaults:
     public: false
     autowire: true
+    bind:
+      OxidEsales\Eshop\Core\Language: '@=service("OxidEsales\\FreeShippingCoupons\\Core\\Registry").getLang()'
+
+  OxidEsales\FreeShippingCoupons\Core\Registry:
+    class: OxidEsales\Eshop\Core\Registry
+    public: true
 
   OxidEsales\FreeShippingCoupons\Infrastructure\VoucherFactoryInterface:
-    class: OxidEsales\FreeShippingCoupons\Infrastructure\FactoryInterface
+    class: OxidEsales\FreeShippingCoupons\Infrastructure\VoucherFactory
+    public: true
 
   OxidEsales\FreeShippingCoupons\Service\FreeShippingVoucherServiceInterface:
     class: OxidEsales\FreeShippingCoupons\Service\FreeShippingVoucherService
+    public: true
+
+  OxidEsales\FreeShippingCoupons\Infrastructure\LanguageProxyInterface:
+    class: OxidEsales\FreeShippingCoupons\Infrastructure\LanguageProxy
+    public: true
