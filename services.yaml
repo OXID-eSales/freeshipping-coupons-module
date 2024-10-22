@@ -5,6 +5,7 @@ services:
     autowire: true
     bind:
       OxidEsales\Eshop\Core\Language: '@=service("OxidEsales\\FreeShippingCoupons\\Core\\Registry").getLang()'
+      OxidEsales\Eshop\Core\UtilsView: '@=service("OxidEsales\\FreeShippingCoupons\\Core\\Registry").getUtilsView()'
 
   OxidEsales\FreeShippingCoupons\Core\Registry:
     class: OxidEsales\Eshop\Core\Registry
@@ -20,4 +21,8 @@ services:
 
   OxidEsales\FreeShippingCoupons\Infrastructure\LanguageProxyInterface:
     class: OxidEsales\FreeShippingCoupons\Infrastructure\LanguageProxy
+    public: true
+
+  OxidEsales\FreeShippingCoupons\Infrastructure\UtilsViewProxyInterface:
+    class: OxidEsales\FreeShippingCoupons\Infrastructure\UtilsViewProxy
     public: true
