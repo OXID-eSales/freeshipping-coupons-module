@@ -24,17 +24,18 @@ class LanguageProxyTest extends TestCase
         $currency->sign = "€";
         $currency->decimal = "2";
 
+		$expectedFormatedAmount = '100.00 €';
         $languageMock = $this->createMock(Language::class);
         $languageMock
             ->expects($this->once())
             ->method('formatCurrency')
             ->with(100.00, $currency)
-            ->willReturn('€100.00');
+            ->willReturn($expectedFormatedAmount);
 
         $sut = new LanguageProxy($languageMock);
 
-        $result = $sut->formatCurrency(value: 100.00, currency: $currency);
+        $actualFormatedAmount = $sut->formatCurrency(value: 100.00, currency: $currency);
 
-        $this->assertEquals('€100.00', $result);
+        $this->assertEquals($expectedFormatedAmount, $actualFormatedAmount);
     }
 }
