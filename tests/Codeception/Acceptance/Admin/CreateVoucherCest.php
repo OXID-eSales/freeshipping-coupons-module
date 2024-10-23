@@ -32,6 +32,10 @@ class CreateVoucherCest
 
         $mainVoucherPage = $voucherPage->findByTitle($voucherData->getTitle());
         $mainVoucherPage->seeVoucher($voucherData);
+
+        $mainVoucherPage->checkVoucherDiscountFieldForShipfreeVoucher();
+
+        $mainVoucherPage->checkAllowSameSeriesRadioDisabled();
     }
 
     private function getVoucherData(): Voucher
