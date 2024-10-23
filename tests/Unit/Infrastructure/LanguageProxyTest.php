@@ -24,7 +24,7 @@ class LanguageProxyTest extends TestCase
         $currency->sign = "€";
         $currency->decimal = "2";
 
-		$expectedFormatedAmount = '100.00 €';
+        $expectedFormatedAmount = '100.00 €';
         $languageMock = $this->createMock(Language::class);
         $languageMock
             ->expects($this->once())
