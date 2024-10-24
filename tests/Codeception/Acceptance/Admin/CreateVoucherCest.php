@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace OxidEsales\FreeShippingCoupons\Tests\Codeception\Acceptance;
 
+use OxidEsales\Codeception\Admin\DataObject\Voucher;
 use OxidEsales\Codeception\Admin\DataObject\VoucherSerie;
 use OxidEsales\Codeception\Admin\Voucher\MainVoucherPage;
 use OxidEsales\FreeShippingCoupons\Tests\Codeception\Support\AcceptanceTester;
@@ -36,6 +37,19 @@ class CreateVoucherCest
         $mainVoucherPage->checkVoucherDiscountFieldForShipfreeVoucher();
 
         $mainVoucherPage->checkAllowSameSeriesRadioDisabled();
+
+        $voucherData = $this->getVoucherData();
+        $mainVoucherPage->createVoucher($voucherData);
+        $mainVoucherPage->seeVoucher($voucherData);
+    }
+
+    private function getVoucherData(): Voucher
+    {
+        $voucher = new Voucher();
+        $voucher->setVoucherNr('shipfree');
+        $voucher->setVoucherAmount('20');
+
+        return $voucher;
     }
 
     private function getVoucherSerieData(): VoucherSerie
