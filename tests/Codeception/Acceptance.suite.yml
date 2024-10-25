@@ -51,6 +51,7 @@ modules:
         paths:
           - 'Application/views/%THEME_ID%'
           - Application/views/admin_twig
+          - '%SOURCE_RELATIVE_PACKAGE_PATH%/translations'
     - \OxidEsales\Codeception\Module\OxideshopModules
 step_decorators:
     - \Codeception\Step\Retry
