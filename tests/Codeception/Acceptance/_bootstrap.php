@@ -15,3 +15,5 @@ require_once Path::join((new \OxidEsales\Facts\Facts())->getShopRootPath(), 'sou
 
 $helper = new FixturesHelper();
 $helper->loadRuntimeFixtures(__DIR__ . '/../Support/Data/users.php');
+$helper->loadRuntimeFixtures(__DIR__ . '/../Support/Data/products.php');
+$helper->loadRuntimeFixtures(__DIR__ . '/../Support/Data/vouchers.php');
