@@ -12,8 +12,7 @@ namespace OxidEsales\FreeShippingCoupons\Tests\Codeception\Support;
 use Codeception\Util\Fixtures;
 use OxidEsales\Codeception\Admin\AdminLoginPage;
 use OxidEsales\Codeception\Admin\AdminPanel;
-use OxidEsales\Codeception\Module\Translation\Translator;
-use OxidEsales\Codeception\Page\Home;
+use OxidEsales\FreeShippingCoupons\Tests\Codeception\Page\Home;
 
 /**
  * Inherited Methods
@@ -38,7 +37,7 @@ final class AcceptanceTester extends \Codeception\Actor
     /**
      * Open shop first page.
      */
-    public function openShop()
+    public function openShop(): Home
     {
         $I = $this;
         $homePage = new Home($I);
