@@ -26,7 +26,7 @@ modules:
         module_dump: '%MODULE_DUMP_PATH%'
         mysql_config: '%MYSQL_CONFIG_PATH%'
         populate: true # run populator before all tests
-        cleanup: false # run populator before each test
+        cleanup: true # run populator before each test
         populator: >
           mysql --defaults-file=$mysql_config --default-character-set=utf8 $dbname < $dump
           && mysql --defaults-file=$mysql_config --default-character-set=utf8 $dbname < $module_dump
@@ -51,6 +51,7 @@ modules:
         paths:
           - 'Application/views/%THEME_ID%'
           - Application/views/admin_twig
+          - '%SOURCE_RELATIVE_PACKAGE_PATH%/translations'
     - \OxidEsales\Codeception\Module\OxideshopModules
 step_decorators:
     - \Codeception\Step\Retry
