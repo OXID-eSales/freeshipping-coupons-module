@@ -47,7 +47,7 @@ class CreateVoucherCest
     {
         $voucher = new Voucher();
         $voucher->setVoucherNr('shipfree');
-        $voucher->setVoucherAmount('20');
+        $voucher->setVoucherQuantity('20');
 
         return $voucher;
     }

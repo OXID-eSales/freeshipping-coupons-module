@@ -17,7 +17,7 @@ $facts = new Facts();
 return [
     'SHOP_URL' => $facts->getShopUrl(),
     'SHOP_SOURCE_PATH' => $facts->getSourcePath(),
-	'SOURCE_RELATIVE_PACKAGE_PATH' => getSourceRelativePackagePath($facts),
+    'SOURCE_RELATIVE_PACKAGE_PATH' => getSourceRelativePackagePath($facts),
     'VENDOR_PATH' => $facts->getVendorPath(),
     'DB_NAME' => $facts->getDatabaseName(),
     'DB_USERNAME' => $facts->getDatabaseUserName(),
