@@ -10,7 +10,7 @@
 
 ## Compatibility
 
-This module assumes you have OXID eShop Compilation version 7.2.0 installed.
+This module assumes you have OXID eShop Compilation version 7.2 installed.
 
 ## Development installation
 

@@ -23,8 +23,8 @@ $aModule = [
     'thumbnail'   => 'logo.png',
     'version'     => '1.0.0',
     'author'      => 'OXID eSales AG',
-    'url'         => '',
-    'email'       => '',
+    'url'         => 'https://www.oxid-esales.com',
+    'email'       => 'info@oxid-esales.com',
     'extend'      => [
         \OxidEsales\Eshop\Application\Model\Basket::class => OxidEsales\FreeShippingCoupons\Extension\Model\Basket::class
     ],
