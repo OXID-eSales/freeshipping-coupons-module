@@ -8,6 +8,8 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=OXID-eSales_freeshipping-coupons-module&metric=coverage&token=0026d27eda3483728f0985d44d32714927ad2f3d)](https://sonarcloud.io/dashboard?id=OXID-eSales_freeshipping-coupons-module)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=OXID-eSales_freeshipping-coupons-module&metric=sqale_index&token=0026d27eda3483728f0985d44d32714927ad2f3d)](https://sonarcloud.io/dashboard?id=OXID-eSales_freeshipping-coupons-module)
 
+This module introduces a new coupon type, ``shipfree``, designed to balance shipping costs to zero for eligible orders. When applied, this coupon calculates its value based on the current basket’s shipping cost, effectively covering all shipping fees for the user.
+
 ## Compatibility
 
 This module assumes you have OXID eShop Compilation version 7.2 installed.
@@ -32,17 +34,23 @@ Ensure you're in the shop root directory (the file `composer.json` and the direc
 $ composer require oxid-esales/freeshipping-coupons-module
 ```
 
-## Freeshipping coupons
+### Usage
 
-The module introduces a new ``shipfree`` option under the Discounts section within the Main settings of the shop's Coupon Series.
-This option allows you to create a coupon that dynamically calculates its value based on the basket's shipping cost, 
-effectively providing the user with free delivery.
-
-### Configuration
+#### Configuration:
 
 - Navigate to Shop Settings → Coupon Series → Main.
-- Select the ``shipfree`` option under the Discount settings.
+- Under Discount, select the ``shipfree`` to enable shipping cost compensation on orders.
 - Configure the remaining coupon settings as desired.
+  
+![Image alt](./free-ship-coupon.png)
+
+#### Usage Notes:
+- Zero-value vouchers appear in the cart to ensure ``shipfree`` coupons are calculated during checkout.
+- If no delivery fees apply, users will see the error, “The voucher might be wasted if not applied to an order with delivery fees.”
+
+#### Testing & Limitations:
+- Ensure that shipping settings are configured.
+- Only one ``shipfree`` coupon is allowed per basket.
 
 ### Order confirmation emails
 
