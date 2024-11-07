@@ -14,6 +14,6 @@ $aLang = [
         '<ul>' .
         '<li><span class="userinput_or_code">abs</span>: The discount is an absolute discount, e.g. EUR 5.</li>' .
         '<li><span class="userinput_or_code">%</span>: The discount is a percentage discount, e.g. 10 percent of the purchase price.</li>' .
-        '<li><span class="userinput_or_code">shipfree</span>: The discount depends on the shipping cost price.</li>' .
+        '<li><span class="userinput_or_code">shipfree</span>: The discount will automatically compensate the applicable shipping costs.</li>' .
         '</ul>',
 ];

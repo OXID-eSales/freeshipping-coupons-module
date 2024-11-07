@@ -18,8 +18,15 @@ $sMetadataVersion = '2.1';
  */
 $aModule = [
     'id'          => Module::MODULE_ID,
-    'title'       => 'OxidEsales Freeshipping Coupons Module',
-    'description' => 'OxidEsales Freeshipping Coupons Module',
+    'title'       =>
+        [
+            'de' => 'Gutscheine für Versandkosten-Ausgleich',
+            'en' => 'Shipping Cost Compensation Coupons'
+        ],
+    'description' => [
+            'de' => 'Dieses Modul fügt einen neuen Gutschein-Typ hinzu, der die Versandkosten automatisch ausgleicht.',
+            'en' => 'This module adds a new coupon type that compensates for shipping costs, balancing them to zero.'
+        ],
     'thumbnail'   => 'logo.png',
     'version'     => '1.0.0',
     'author'      => 'OXID eSales AG',
