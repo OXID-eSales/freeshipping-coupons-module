@@ -16,5 +16,4 @@ $aLang = [
         '<li><span class="userinput_or_code">%</span>: Der Rabatt ist prozentual, z. B. 10 Prozent vom Einkaufswert.</li>' .
         '<li><span class="userinput_or_code">shipfree</span>: Der Rabatt hängt von der Höhe der Versandkosten ab.</li>' .
         '</ul>',
-
 ];
