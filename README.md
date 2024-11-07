@@ -44,6 +44,30 @@ effectively providing the user with free delivery.
 - Select the ``shipfree`` option under the Discount settings.
 - Configure the remaining coupon settings as desired.
 
+### Order confirmation emails
+
+In order to properly display the free shipping voucher value in order confirmation email, you need to change the templates 
+named ``order_cust.html.twig`` and ``order_owner.html.twig`` to display the free shipping coupons value and shown in the example below.
+
+```bash
+    {% for voucher in order.getVoucherList() %}
+        {% set voucherseries = voucher.getSerie() %}
+        <tr valign="top" bgcolor="#ebebeb">
+            <td align="right" colspan="{{ iFooterColspan }}" class="odd text-right">{{ voucher.oxvouchers__oxvouchernr.value }}</td>
+            <td align="right" class="odd text-right">
+                {% if voucherseries.oxvoucherseries__oxdiscounttype.value == "absolute" %}
+                  {{ format_price(voucherseries.oxvoucherseries__oxdiscount.value , { currency: currency }) }}
+                {% elseif voucherseries.oxvoucherseries__oxdiscounttype.value == "percentage" %}
+                  {{ voucherseries.oxvoucherseries__oxdiscount.value }}%
+                {% elseif voucherseries.oxvoucherseries__oxdiscounttype.value == "shipfree" %}
+                  {{ format_price(voucher.oxvouchers__oxdiscount.value , { currency: currency }) }}
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+```bash
+
+
 ## Testing
 ### Linting, syntax check, static analysis
 
