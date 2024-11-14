@@ -19,19 +19,25 @@ This module assumes you have OXID eShop Compilation version 7.2 installed.
 To install from github as a source, first clone the repository.
 
 ```bash
-$ git clone https://github.com/OXID-eSales/freeshipping-coupons-module ./dev-packages/freeshipping-coupons-module
+git clone https://github.com/OXID-eSales/freeshipping-coupons-module ./dev-packages/freeshipping-coupons-module
 ```
 Set the repository up in composer.json
 
 ```bash
-$ composer config repositories.oxid-esales/freeshipping-coupons-module \
+composer config repositories.oxid-esales/freeshipping-coupons-module \
   --json '{"type":"path", "url":"./dev-packages/freeshipping-coupons-module", "options": {"symlink": true}}'
 ```
 
 Ensure you're in the shop root directory (the file `composer.json` and the directories `source/` and `vendor/` are located there) and require the module.
 
 ```bash
-$ composer require oxid-esales/freeshipping-coupons-module
+composer require oxid-esales/freeshipping-coupons-module
+```
+
+Migrate the database.
+
+```bash
+./vendor/bin/oe-eshop-db_migrate migrations:migrate
 ```
 
 ### Usage
@@ -90,19 +96,19 @@ $ composer static
 - Reset the shop's database
 
 ```bash
-$ bin/oe-console oe:database:reset --db-host=db-host --db-port=db-port --db-name=db-name --db-user=db-user --db-password=db-password --force
+bin/oe-console oe:database:reset --db-host=db-host --db-port=db-port --db-name=db-name --db-user=db-user --db-password=db-password --force
 ```
 
 - Run all the tests
 
 ```bash
-$ composer tests-all
+composer tests-all
 ```
 
 - Or the desired suite
 
 ```bash
-$ composer tests-unit
-$ composer tests-integration
-$ composer tests-codeception
+composer tests-unit
+composer tests-integration
+composer tests-codeception
 ```
