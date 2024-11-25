@@ -4,10 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [v1.0.0] - Unreleased
+## [v1.1.0] - Unreleased
 
 ### Added
 - Update PhpUnit version to 11.4
+- Support for PHP 8.3.
+
 
 ## [v1.0.0-rc.1] - 2024-11-08
 
@@ -17,3 +19,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Informational error message in cart when a ``shipfree`` voucher is applied without delivery fees, warning users of potential voucher waste.
 - Designed for OXID eShop 7.2.x
 
+[1.0.0-rc.1]: https://github.com/OXID-eSales/freeshipping-coupons-module/releases/tag/v1.0.0-rc.1
