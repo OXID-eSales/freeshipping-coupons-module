@@ -8,8 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Update PhpUnit version to 11.4
-- Support for PHP 8.3.
-
+- Support for PHP 8.4.
 
 ## [v1.0.0-rc.1] - 2024-11-08
 
