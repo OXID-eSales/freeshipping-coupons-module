@@ -12,8 +12,8 @@ This module introduces a new coupon type, ``shipfree``, designed to balance ship
 
 ## Branch compatibility
 
-b-7.3.x branch is compatible with OXID eShop compilation b-7.3.x
-1.0.x versions (or b-7.2.x branch) are compatible with OXID eShop compilation b-7.2.x
+* b-7.3.x branch is compatible with OXID eShop compilation b-7.3.x
+* 1.0.x versions (or b-7.2.x branch) are compatible with OXID eShop compilation b-7.2.x
 
 # Development installation on OXID eShop SDK
 
