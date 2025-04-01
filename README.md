@@ -10,9 +10,10 @@
 
 This module introduces a new coupon type, ``shipfree``, designed to balance shipping costs to zero for eligible orders. When applied, this coupon calculates its value based on the current basket’s shipping cost, effectively covering all shipping fees for the user.
 
-## Compatibility
+## Branch compatibility
 
-This module assumes you have OXID eShop Compilation version 7.2 installed.
+b-7.3.x branch is compatible with OXID eShop compilation b-7.3.x
+1.0.x versions (or b-7.2.x branch) are compatible with OXID eShop compilation b-7.2.x
 
 # Development installation on OXID eShop SDK
 
