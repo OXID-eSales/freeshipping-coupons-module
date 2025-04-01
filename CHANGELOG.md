@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Update PhpUnit version to 11.4
 - Support for PHP 8.4.
+- OXID SDK recipe for development setup
+
+## [v1.0.0] - 2024-11-27
+
+### Changed
+- Updated and improved setup instructions in README.md
 
 ## [v1.0.0-rc.1] - 2024-11-08
 
