@@ -14,31 +14,30 @@ This module introduces a new coupon type, ``shipfree``, designed to balance ship
 
 This module assumes you have OXID eShop Compilation version 7.2 installed.
 
-## Development installation
+# Development installation on OXID eShop SDK
 
-To install from github as a source, first clone the repository.
+The installation instructions below are shown for the current [SDK](https://github.com/OXID-eSales/docker-eshop-sdk)
+for shop 7.3. Make sure your system meets the requirements of the SDK.
 
-```bash
-git clone https://github.com/OXID-eSales/freeshipping-coupons-module ./dev-packages/freeshipping-coupons-module
-```
-Set the repository up in composer.json
+0. Ensure all docker containers are down to avoid port conflicts
 
-```bash
-composer config repositories.oxid-esales/freeshipping-coupons-module \
-  --json '{"type":"path", "url":"./dev-packages/freeshipping-coupons-module", "options": {"symlink": true}}'
+1. Clone the SDK for the new project
+```shell
+echo MyProject && git clone https://github.com/OXID-eSales/docker-eshop-sdk.git $_ && cd $_
 ```
 
-Ensure you're in the shop root directory (the file `composer.json` and the directories `source/` and `vendor/` are located there) and require the module.
-
-```bash
-composer require oxid-esales/freeshipping-coupons-module
+2. Clone the repository to the source directory
+```shell
+git clone --recurse-submodules https://github.com/OXID-eSales/freeshipping-coupons-module.git --branch=b-7.3.x ./source
 ```
 
-Migrate the database.
-
-```bash
-./vendor/bin/oe-eshop-db_migrate migrations:migrate
+3. Run the recipe to setup the development environment
+```shell
+./source/recipes/setup-development.sh
 ```
+
+You should be able to access the shop with http://localhost.local and the admin panel with http://localhost.local/admin
+(credentials: noreply@oxid-esales.com / admin)
 
 ### Usage
 
