@@ -1,0 +1,6 @@
+[submodule "parts"]
+	path = parts
+	url = https://github.com/OXID-eSales/docker-eshop-sdk-recipe-parts.git
+[submodule "recipes/parts"]
+	path = recipes/parts
+	url = https://github.com/OXID-eSales/docker-eshop-sdk-recipe-parts.git
