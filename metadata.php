@@ -28,7 +28,7 @@ $aModule = [
             'en' => 'This module adds a new coupon type that compensates for shipping costs, balancing them to zero.'
         ],
     'thumbnail'   => 'logo.png',
-    'version'     => '1.1.0-rc.2',
+    'version'     => '1.1.0',
     'author'      => 'OXID eSales AG',
     'url'         => 'https://www.oxid-esales.com',
     'email'       => 'info@oxid-esales.com',
