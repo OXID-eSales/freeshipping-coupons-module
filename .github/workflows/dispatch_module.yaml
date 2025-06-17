@@ -25,7 +25,7 @@ on:
 
 jobs:
   build_testplan:
-    runs-on: ["self-hosted", "x64"]
+    runs-on: ubuntu-latest
     outputs:
       testplan: '${{ steps.build_testplan.outputs.testplan }}'
     steps:
