@@ -15,15 +15,9 @@ This module introduces a new coupon type, ``shipfree``, designed to balance ship
 * 1.1.x versions (or b-7.3.x branch) are compatible with OXID eShop compilation b-7.3.x
 * 1.0.x versions (or b-7.2.x branch) are compatible with OXID eShop compilation b-7.2.x
 
-# Installation from OXID packages server
+# Installation 
 
-1. Register the packages server you have access to, for example, the OXID eShop Enterprise Edition packages server:
-
-```bash
-composer config repositories.oxid-esales/freeshipping-coupons-module composer https://enterprise-edition.packages.oxid-esales.com/
-```
-
-2. Run the following commands to install the latest version of this module:
+1. Run the following command to install the latest version of this module:
 
 ```bash
 composer require oxid-esales/freeshipping-coupons-module ^1.1
