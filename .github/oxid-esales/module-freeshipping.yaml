@@ -1,6 +1,8 @@
 install:
   cache:
     prepared_shop: false
+  method: 'script'
+  script: 'source/.github/oxid-esales/install.sh'
   git:
     repository: 'OXID-eSales/freeshipping-coupons-module'
     ref: &ref '{{ .Github.RefName }}'

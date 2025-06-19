@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Undecided] - unreleased
 
 ### Changed
+- Update module for Shop 8.0.x
+
+## [Undecided] - unreleased
+
+### Changed
 - Update module for Shop 7.4.x
 
 ## [v1.1.0] - 2025-06-11
