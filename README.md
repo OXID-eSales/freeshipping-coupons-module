@@ -51,7 +51,7 @@ echo MyProject && git clone https://github.com/OXID-eSales/docker-eshop-sdk.git 
 
 2. Clone the repository to the source directory
 ```shell
-git clone --recurse-submodules https://github.com/OXID-eSales/freeshipping-coupons-module.git --branch=b-7.3.x ./source
+git clone --recurse-submodules https://github.com/OXID-eSales/freeshipping-coupons-module.git --branch=b-7.4.x ./source
 ```
 
 3. Run the recipe to setup the development environment
