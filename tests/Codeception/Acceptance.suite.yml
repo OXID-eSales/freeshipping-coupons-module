@@ -10,6 +10,8 @@ modules:
         dump: '%DUMP_PATH%'
         fixtures: '%FIXTURES_PATH%'
         license: '%license_key%'
+        mysql_config: '%MYSQL_CONFIG_PATH%'
+        db_name: '%DB_NAME%'
     - WebDriver:
         url: '%SHOP_URL%'
         host: '%SELENIUM_SERVER_HOST%'

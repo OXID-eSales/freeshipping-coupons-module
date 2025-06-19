@@ -30,7 +30,11 @@ perl -pi\
   containers/httpd/project.conf
 
 perl -pi\
-  -e 's#PHP_VERSION=.*#PHP_VERSION=8.2#g;'\
+  -e 's#PHP_VERSION=.*#PHP_VERSION=8.4#g;'\
+  .env
+
+perl -pi\
+  -e 's#MYSQL_VERSION=.*#MYSQL_VERSION=8.0#g;'\
   .env
 
 mkdir source
@@ -45,7 +49,7 @@ docker compose exec php composer update --no-interaction
 
 make up
 
-$SCRIPT_PATH/parts/shared/setup_database.sh
+docker compose exec -T php vendor/bin/oe-console oe:database:reset --force
 
 docker compose exec -T php vendor/bin/oe-console oe:module:install ./
 docker compose exec -T php vendor/bin/oe-eshop-doctrine_migration migrations:migrate

@@ -10,8 +10,7 @@ declare(strict_types=1);
 
 namespace OxidEsales\FreeShippingCoupons\Tests\Codeception\Config;
 
-use OxidEsales\Codeception\Module\Database\DatabaseDefaultsFileGenerator;
-use OxidEsales\Facts\Config\ConfigFile;
+use OxidEsales\Codeception\Module\Database;
 use OxidEsales\Facts\Facts;
 use Symfony\Component\Filesystem\Path;
 
@@ -34,7 +33,7 @@ class CodeceptionParametersProvider
             'MODULE_DUMP_PATH' => $this->getTestFixtureSqlFilePath($facts),
             'FIXTURES_PATH' => $this->getGenericFixtureSqlFilePath(),
             'OUT_DIRECTORY_FIXTURES' => $this->getOutDirectoryFixturesPath(),
-            'MYSQL_CONFIG_PATH' => $this->getMysqlConfigPath(),
+            'MYSQL_CONFIG_PATH' => $this->generateMysqlStarUpConfigurationFile($facts),
             'SELENIUM_SERVER_PORT' => getenv('SELENIUM_SERVER_PORT') ?: '4444',
             'SELENIUM_SERVER_HOST' => getenv('SELENIUM_SERVER_HOST') ?: 'selenium',
             'PHP_BIN' => (getenv('PHPBIN')) ?: 'php',
@@ -94,13 +93,13 @@ class CodeceptionParametersProvider
             : $this->getShopSuitePath($facts);
     }
 
-    private function getMysqlConfigPath(): string
+    private function generateMysqlStarUpConfigurationFile(Facts $facts): string
     {
-        return (
-        new DatabaseDefaultsFileGenerator(
-            new ConfigFile()
-        )
-        )
-            ->generate();
+        return Database::generateStartupOptionsFile(
+            user: $facts->getDatabaseUserName(),
+            pass: $facts->getDatabasePassword(),
+            host: $facts->getDatabaseHost(),
+            port: $facts->getDatabasePort()
+        );
     }
 }
