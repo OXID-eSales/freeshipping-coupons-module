@@ -12,7 +12,7 @@ This module introduces a new coupon type, ``shipfree``, designed to balance ship
 
 ## Branch compatibility
 
-* b-7.4.x branch is compatible with b-7.4.x shop compilation branches
+* 1.2.x versions (or b-7.4.x branch) are compatible with OXID eShop compilation b-7.4.x
 * 1.1.x versions (or b-7.3.x branch) are compatible with OXID eShop compilation b-7.3.x
 * 1.0.x versions (or b-7.2.x branch) are compatible with OXID eShop compilation b-7.2.x
 
@@ -21,7 +21,7 @@ This module introduces a new coupon type, ``shipfree``, designed to balance ship
 1. Run the following command to install the latest version of this module:
 
 ```bash
-composer require oxid-esales/freeshipping-coupons-module ^1.1
+composer require oxid-esales/freeshipping-coupons-module ^1.2
 ```
 
 3. Before activating the module, make sure you run migrations first
@@ -40,7 +40,7 @@ vendor/bin/oe-console oe:module:activate oe_freeshipping
 # Development installation on OXID eShop SDK
 
 The installation instructions below are shown for the current [SDK](https://github.com/OXID-eSales/docker-eshop-sdk)
-for shop 7.3. Make sure your system meets the requirements of the SDK.
+for shop 7.4. Make sure your system meets the requirements of the SDK.
 
 0. Ensure all docker containers are down to avoid port conflicts
 
