@@ -1,6 +1,6 @@
 # OXID Free Shipping Coupons Module
 
-[![Development](https://github.com/OXID-eSales/freeshipping-coupons-module/actions/workflows/trigger.yaml/badge.svg?branch=b-7.2.x)](https://github.com/OXID-eSales/freeshipping-coupons-module/actions/workflows/trigger.yaml)
+[![Development](https://github.com/OXID-eSales/freeshipping-coupons-module/actions/workflows/trigger.yaml/badge.svg?branch=b-7.5.x)](https://github.com/OXID-eSales/freeshipping-coupons-module/actions/workflows/trigger.yaml)
 [![Latest Version](https://img.shields.io/packagist/v/OXID-eSales/freeshipping-coupons-module?logo=composer&label=latest&include_prereleases&color=orange)](https://packagist.org/packages/oxid-esales/freeshipping-coupons-module)
 [![PHP Version](https://img.shields.io/packagist/php-v/oxid-esales/freeshipping-coupons-module)](https://github.com/oxid-esales/freeshipping-coupons-module)
 
@@ -12,6 +12,7 @@ This module introduces a new coupon type, ``shipfree``, designed to balance ship
 
 ## Branch compatibility
 
+* 1.3.x versions (or b-7.5.x branch) are compatible with OXID eShop compilation b-7.5.x
 * 1.2.x versions (or b-7.4.x branch) are compatible with OXID eShop compilation b-7.4.x
 * 1.1.x versions (or b-7.3.x branch) are compatible with OXID eShop compilation b-7.3.x
 * 1.0.x versions (or b-7.2.x branch) are compatible with OXID eShop compilation b-7.2.x
@@ -21,7 +22,7 @@ This module introduces a new coupon type, ``shipfree``, designed to balance ship
 1. Run the following command to install the latest version of this module:
 
 ```bash
-composer require oxid-esales/freeshipping-coupons-module ^1.2
+composer require oxid-esales/freeshipping-coupons-module ^1.3
 ```
 
 3. Before activating the module, make sure you run migrations first
@@ -40,7 +41,7 @@ vendor/bin/oe-console oe:module:activate oe_freeshipping
 # Development installation on OXID eShop SDK
 
 The installation instructions below are shown for the current [SDK](https://github.com/OXID-eSales/docker-eshop-sdk)
-for shop 7.4. Make sure your system meets the requirements of the SDK.
+for shop 7.5. Make sure your system meets the requirements of the SDK.
 
 0. Ensure all docker containers are down to avoid port conflicts
 
@@ -51,7 +52,7 @@ echo MyProject && git clone https://github.com/OXID-eSales/docker-eshop-sdk.git 
 
 2. Clone the repository to the source directory
 ```shell
-git clone --recurse-submodules https://github.com/OXID-eSales/freeshipping-coupons-module.git --branch=b-7.4.x ./source
+git clone --recurse-submodules https://github.com/OXID-eSales/freeshipping-coupons-module.git --branch=b-7.5.x ./source
 ```
 
 3. Run the recipe to setup the development environment
