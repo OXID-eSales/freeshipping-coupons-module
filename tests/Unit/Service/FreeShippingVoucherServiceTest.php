@@ -12,8 +12,10 @@ namespace OxidEsales\FreeShippingCoupons\Tests\Unit\Service;
 use OxidEsales\Eshop\Application\Model\Voucher;
 use OxidEsales\FreeShippingCoupons\Infrastructure\VoucherFactoryInterface;
 use OxidEsales\FreeShippingCoupons\Service\FreeShippingVoucherService;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
+#[AllowMockObjectsWithoutExpectations]
 final class FreeShippingVoucherServiceTest extends TestCase
 {
     public function testIsFreeShippingVoucherReturnsTrue(): void

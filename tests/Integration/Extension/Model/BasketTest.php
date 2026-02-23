@@ -18,8 +18,10 @@ use OxidEsales\Eshop\Application\Model\Voucher as VoucherModel;
 use OxidEsales\FreeShippingCoupons\Infrastructure\LanguageProxyInterface;
 use OxidEsales\FreeShippingCoupons\Infrastructure\UtilsViewProxyInterface;
 use OxidEsales\FreeShippingCoupons\Service\FreeShippingVoucherServiceInterface;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use stdClass;
 
+#[AllowMockObjectsWithoutExpectations]
 final class BasketTest extends IntegrationTestCase
 {
     private ?VoucherModel $shipFreeVoucher;
@@ -232,7 +234,6 @@ final class BasketTest extends IntegrationTestCase
     {
         $reflection = new \ReflectionClass($object);
         $method = $reflection->getMethod($methodName);
-        $method->setAccessible(true);
 
         return $method->invokeArgs($object, $parameters);
     }
