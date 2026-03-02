@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [1.3.0] - Unreleased
 
 ### Changed
 - Updated to work with OXID eShop 7.5.x
@@ -43,6 +43,7 @@ This is the stable release for v1.1.0. No changes have been made since v1.1.0-rc
 - Informational error message in cart when a ``shipfree`` voucher is applied without delivery fees, warning users of potential voucher waste.
 - Designed for OXID eShop 7.2.x
 
+[1.3.0]: https://github.com/OXID-eSales/freeshipping-coupons-module/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/OXID-eSales/freeshipping-coupons-module/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/OXID-eSales/freeshipping-coupons-module/compare/v1.1.0-rc.2...v1.1.0
 [1.1.0-rc.2]: https://github.com/OXID-eSales/freeshipping-coupons-module/compare/v1.1.0-rc.1...v1.1.0-rc.2
