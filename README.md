@@ -1,6 +1,6 @@
 # OXID Free Shipping Coupons Module
 
-[![Development](https://github.com/OXID-eSales/freeshipping-coupons-module/actions/workflows/trigger.yaml/badge.svg?branch=b-7.5.x)](https://github.com/OXID-eSales/freeshipping-coupons-module/actions/workflows/trigger.yaml)
+[![Development](https://github.com/OXID-eSales/freeshipping-coupons-module/actions/workflows/trigger.yaml/badge.svg?branch=b-7.6.x)](https://github.com/OXID-eSales/freeshipping-coupons-module/actions/workflows/trigger.yaml)
 [![Latest Version](https://img.shields.io/packagist/v/OXID-eSales/freeshipping-coupons-module?logo=composer&label=latest&include_prereleases&color=orange)](https://packagist.org/packages/oxid-esales/freeshipping-coupons-module)
 [![PHP Version](https://img.shields.io/packagist/php-v/oxid-esales/freeshipping-coupons-module)](https://github.com/oxid-esales/freeshipping-coupons-module)
 
@@ -12,6 +12,7 @@ This module introduces a new coupon type, ``shipfree``, designed to balance ship
 
 ## Branch compatibility
 
+* b-7.6.x branch is compatible with latest shop compilation 7.6.x resp. b-7.6.x shop compilation branches
 * 1.3.x versions (or b-7.5.x branch) are compatible with OXID eShop compilation b-7.5.x
 * 1.2.x versions (or b-7.4.x branch) are compatible with OXID eShop compilation b-7.4.x
 * 1.1.x versions (or b-7.3.x branch) are compatible with OXID eShop compilation b-7.3.x
