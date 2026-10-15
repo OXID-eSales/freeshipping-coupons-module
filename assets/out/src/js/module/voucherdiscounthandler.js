@@ -16,6 +16,11 @@ export class VoucherDiscountHandler {
     initialize() {
         this.updateFieldsBasedOnDiscountType();
         this.discountTypeSelect.addEventListener('change', () => this.updateFieldsBasedOnDiscountType());
+        this.discountInput.form.addEventListener('formdata', (event) => {
+            if (this.discountInput.disabled) {
+                event.formData.set(this.discountInput.name, '0');
+            }
+        });
     }
 
     updateFieldsBasedOnDiscountType() {
